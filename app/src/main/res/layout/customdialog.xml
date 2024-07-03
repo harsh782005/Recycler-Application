@@ -35,40 +35,46 @@
         android:hint="@string/hint"
         android:maxEms="3"
         android:textAlignment="center" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textSize="@dimen/sp_20"
-        android:text="@string/select_priority"/>
+        android:text="@string/select_priority"
+        android:textSize="@dimen/sp_20" />
+
     <RadioGroup
+        android:id="@+id/radioButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/radioButton"
         android:layout_gravity="center"
         android:orientation="vertical">
+
         <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/orange"
             android:id="@+id/rbLow"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
             android:text="@string/low"
-            android:textSize="@dimen/sp_20"/>
+            android:textSize="@dimen/sp_20" />
+
         <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/blue"
             android:id="@+id/rbMedium"
-            android:text="@string/medium"
-            android:textSize="@dimen/sp_20"/>
-        <RadioButton
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
-            android:textColor="@color/green"
+            android:text="@string/medium"
+            android:textSize="@dimen/sp_20" />
+
+        <RadioButton
             android:id="@+id/rbHigh"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
             android:text="@string/high"
-            android:textSize="@dimen/sp_20"/>
+            android:textSize="@dimen/sp_20" />
     </RadioGroup>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnAdd"
         android:layout_width="wrap_content"

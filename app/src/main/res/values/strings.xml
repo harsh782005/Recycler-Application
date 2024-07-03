@@ -4,10 +4,10 @@
     <string name="tittle">Tittle</string>
     <string name="enter">Enter Description</string>
     <string name="hint">Description</string>
-    <string name="add">Add</string>
+    <string name="add">Apply</string>
     <string name="enter_tittle">Enter Tittle</string>
     <string name="enter_description">Enter Description</string>
-    <string name="select_priority">Select Priority</string>
+    <string name="select_priority">Enter Priority</string>
     <string name="low">Low</string>
     <string name="medium">Medium</string>
     <string name="high">High</string>

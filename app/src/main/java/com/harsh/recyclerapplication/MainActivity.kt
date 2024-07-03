@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
                     dialogBinding.etDescription.error =
                         resources.getString(R.string.enter_description)
                 } else if (dialogBinding.radioButton.checkedRadioButtonId == -1) {
-                    Toast.makeText(this, "Select One", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Choose One Option", Toast.LENGTH_SHORT).show()
                 } else {
                     list.add(
                         TaskDataClass(
@@ -59,13 +59,13 @@ class MainActivity : AppCompatActivity() {
                         )
                     )
                     dialogBinding.rbLow.setOnClickListener {
-                        binding?.recyclerView?.setBackgroundColor(Color.parseColor("#FF5722"))
+                        binding?.recyclerView?.setBackgroundColor(resources.getColor(R.color.orange))
                     }
                     dialogBinding.rbHigh.setOnClickListener {
-                        binding?.recyclerView?.setBackgroundColor(Color.parseColor("3F51B5"))
+                        binding?.recyclerView?.setBackgroundColor(resources.getColor(R.color.green))
                     }
                     dialogBinding.rbMedium.setOnClickListener {
-                        binding?.recyclerView?.setBackgroundColor(Color.parseColor("3F51B5"))
+                        binding?.recyclerView?.setBackgroundColor(resources.getColor(R.color.blue))
                     }
                     adapter.notifyDataSetChanged()
                     dialog.dismiss()
