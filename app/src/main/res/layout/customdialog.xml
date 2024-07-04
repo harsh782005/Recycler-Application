@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/sp11"
         android:hint="@string/hint"
-        android:maxEms="3"
+        android:minLines="5"
         android:textAlignment="center" />
 
     <TextView
@@ -43,45 +43,33 @@
         android:text="@string/select_priority"
         android:textSize="@dimen/sp_20" />
 
-    <RadioGroup
-        android:id="@+id/radioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/rbLow"
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-            android:text="@string/low"
-            android:textSize="@dimen/sp_20" />
-
-        <RadioButton
-            android:id="@+id/rbMedium"
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-            android:text="@string/medium"
-            android:textSize="@dimen/sp_20" />
-
-        <RadioButton
-            android:id="@+id/rbHigh"
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-            android:text="@string/high"
-            android:textSize="@dimen/sp_20" />
-    </RadioGroup>
-
+   <RadioGroup
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:id="@+id/radioButton"
+       android:layout_gravity="center">
+       <RadioButton
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/rbHigh"
+           android:id="@+id/rbHigh"/>
+       <RadioButton
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/rbLow"
+           android:id="@+id/rbLow"/>
+       <RadioButton
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/rbMedium"
+           android:id="@+id/rbMedium"/>
+   </RadioGroup>
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/sp11"
-        android:text="@string/add" />
-
+        android:text="@string/add"
+        android:id="@+id/btnAdd"
+        android:layout_gravity="center"/>
 
 </LinearLayout>

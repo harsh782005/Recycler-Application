@@ -11,4 +11,13 @@
     <string name="low">Low</string>
     <string name="medium">Medium</string>
     <string name="high">High</string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
+    <string name="enter_task_title">Enter Task Tittle</string>
+    <string name="enter_task_description">Enter Task Description</string>
+    <string name="rbHigh">rbHigh</string>
+    <string name="rbLow">Low</string>
+    <string name="rbMedium">Medium</string>
 </resources>

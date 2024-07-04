@@ -4,4 +4,5 @@
     <dimen name="sp1">10sp</dimen>
     <dimen name="sp11">20sp</dimen>
     <dimen name="sp_20">20sp</dimen>
+    <dimen name="dp_10">10dp</dimen>
 </resources>
