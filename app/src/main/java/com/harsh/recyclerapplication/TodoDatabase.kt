@@ -20,6 +20,7 @@ abstract class TodoDatabase : RoomDatabase() {
                         .allowMainThreadQueries()
                         .build()
             }
+
             return todoDatabase!!
         }
     }

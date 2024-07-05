@@ -39,21 +39,37 @@ class MainActivity : AppCompatActivity(), TaskClickInterface {
         binding?.recyclerView?.layoutManager = linearLayoutManager
         binding?.recyclerView?.adapter = adapter
         binding?.rbMediumPriority?.setOnClickListener {
-            todoDatabase.todoDao().TaskAccPriorit(1
-                )
-            list.add(
-                TaskDataClass(
-
+            list.clear()
+            list.addAll(
+                todoDatabase.todoDao().TaskAccPriorit(
+                    2
                 )
             )
+
+            adapter.notifyDataSetChanged()
+        }
+        binding?.rbAll?.setOnClickListener {
+            list.clear()
+            getList()
+            adapter.notifyDataSetChanged()
         }
         binding?.rbLowPriority?.setOnClickListener {
-            todoDatabase.todoDao().TaskAccPriorit(2
+            list.clear()
+            list.addAll(
+                todoDatabase.todoDao().TaskAccPriorit(
+                    3
+                )
             )
+            adapter.notifyDataSetChanged()
         }
         binding?.rbHighPriority?.setOnClickListener {
-            todoDatabase.todoDao().TaskAccPriorit(3
+            list.clear()
+            list.addAll(
+                todoDatabase.todoDao().TaskAccPriorit(
+                    1
+                )
             )
+            adapter.notifyDataSetChanged()
         }
         binding?.fabBtn?.setOnClickListener {
             var dialog = Dialog(this)

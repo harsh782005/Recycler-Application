@@ -38,7 +38,7 @@ class TaskRecyclerAdapter(
         holder.tvDescription.setText(list[position].tvDescription)
         when (list[position].tvPriority) {
             1 -> {
-                holder.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.orange))
+                holder.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.orange   ))
             }
 
             2 -> {
