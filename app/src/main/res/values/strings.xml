@@ -20,4 +20,5 @@
     <string name="rbHigh">rbHigh</string>
     <string name="rbLow">Low</string>
     <string name="rbMedium">Medium</string>
+    <string name="all">All</string>
 </resources>

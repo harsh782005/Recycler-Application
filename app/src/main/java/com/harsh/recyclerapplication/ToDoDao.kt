@@ -18,4 +18,6 @@ interface ToDoDao {
     fun updateTodo(taskDataClass: TaskDataClass)
     @Delete
     fun deleteToDo(taskDataClass: TaskDataClass)
+    @Query("SELECT * FROM TaskDataClass WHERE tvPriority = :tvPriority")
+    fun TaskAccPriorit(tvPriority : Int): List<TaskDataClass>
 }

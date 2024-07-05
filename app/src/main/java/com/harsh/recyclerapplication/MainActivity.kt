@@ -38,6 +38,23 @@ class MainActivity : AppCompatActivity(), TaskClickInterface {
         linearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding?.recyclerView?.layoutManager = linearLayoutManager
         binding?.recyclerView?.adapter = adapter
+        binding?.rbMediumPriority?.setOnClickListener {
+            todoDatabase.todoDao().TaskAccPriorit(1
+                )
+            list.add(
+                TaskDataClass(
+
+                )
+            )
+        }
+        binding?.rbLowPriority?.setOnClickListener {
+            todoDatabase.todoDao().TaskAccPriorit(2
+            )
+        }
+        binding?.rbHighPriority?.setOnClickListener {
+            todoDatabase.todoDao().TaskAccPriorit(3
+            )
+        }
         binding?.fabBtn?.setOnClickListener {
             var dialog = Dialog(this)
             var dialogBinding = CustomdialogBinding.inflate(layoutInflater)
@@ -65,13 +82,13 @@ class MainActivity : AppCompatActivity(), TaskClickInterface {
                         3
                     else
                         0
-                    list.add(
-                        TaskDataClass(
-                            tvTittle = dialogBinding.etTittle.text.toString(),
-                            tvDescription = dialogBinding.etDescription.text.toString(),
-                            tvPriority = priority
-                        )
-                    )
+                    /*  list.add(
+                          TaskDataClass(
+                              tvTittle = dialogBinding.etTittle.text.toString(),
+                              tvDescription = dialogBinding.etDescription.text.toString(),
+                              tvPriority = priority
+                          )
+                      )*/
                     todoDatabase.todoDao().insertToDo(
                         TaskDataClass(
                             tvTittle = dialogBinding.etTittle.text.toString(),
@@ -79,22 +96,9 @@ class MainActivity : AppCompatActivity(), TaskClickInterface {
                             tvPriority = priority
                         )
                     )
-                    todoDatabase.todoDao().updateTodo(
-                        TaskDataClass(
-                            tvTittle = dialogBinding.etTittle.text.toString(),
-                            tvDescription = dialogBinding.etDescription.text.toString(),
-                            tvPriority = priority
-                        )
-                    )
-                    todoDatabase.todoDao().deleteToDo(
-                        TaskDataClass(
-                            tvPriority = priority,
-                            tvTittle = dialogBinding.etTittle.text.toString(),
-                            tvDescription = dialogBinding.etDescription.text.toString()
-                        )
-                    )
+
                     getList()
-                    adapter.notifyDataSetChanged()
+                    // adapter.notifyDataSetChanged()
                     dialog.dismiss()
                 }
 
@@ -112,6 +116,13 @@ class MainActivity : AppCompatActivity(), TaskClickInterface {
                 WindowManager.LayoutParams.MATCH_PARENT
             )
             show()
+            dialogBinding.etTittle.setText(list[position].tvTittle)
+            dialogBinding.etDescription.setText(list[position].tvDescription)
+            when (list[position].tvPriority) {
+                0 -> dialogBinding.rbLow.isChecked = true
+                1 -> dialogBinding.rbMedium.isChecked = true
+                2 -> dialogBinding.rbHigh.isChecked = true
+            }
             dialogBinding.btnAdd.setOnClickListener {
                 if (dialogBinding.etTittle.text.toString().isEmpty()) {
                     dialogBinding.etTittle.error = resources.getString(R.string.enter_tittle)
@@ -129,14 +140,23 @@ class MainActivity : AppCompatActivity(), TaskClickInterface {
                     else {
                         0
                     }
-                    list.set(
-                        position, TaskDataClass(
+                    todoDatabase.todoDao().updateTodo(
+                        TaskDataClass(
+                            id = list[position].id,
                             tvTittle = dialogBinding.etTittle.text.toString(),
                             tvDescription = dialogBinding.etDescription.text.toString(),
                             tvPriority = priority
                         )
                     )
-                    adapter.notifyDataSetChanged()
+                    getList()
+                    /*  list.set(
+                          position, TaskDataClass(
+                              tvTittle = dialogBinding.etTittle.text.toString(),
+                              tvDescription = dialogBinding.etDescription.text.toString(),
+                              tvPriority = priority
+                          )
+                      )
+                      adapter.notifyDataSetChanged()*/
                     dismiss()
                 }
             }
@@ -144,21 +164,22 @@ class MainActivity : AppCompatActivity(), TaskClickInterface {
     }
 
     fun getList() {
+        list.clear()
         list.addAll(todoDatabase.todoDao().getList())
         adapter.notifyDataSetChanged()
     }
-  /*  fun updateToDO(){
-      list.add(
-          TaskDataClass( tvTittle = toString(), tvDescription = toString())
-      )
-        adapter.notifyDataSetChanged()
-    }*/
-  /*  fun deleteToDO(){
-        list.removeAt(
+    /*  fun updateToDO(){
+        list.add(
             TaskDataClass( tvTittle = toString(), tvDescription = toString())
         )
-        adapter.notifyDataSetChanged()
-    }*/
+          adapter.notifyDataSetChanged()
+      }*/
+    /*  fun deleteToDO(){
+          list.removeAt(
+              TaskDataClass( tvTittle = toString(), tvDescription = toString())
+          )
+          adapter.notifyDataSetChanged()
+      }*/
 
     override fun deleteTask(position: Int) {
         var alertDialog = AlertDialog.Builder(this)
@@ -169,6 +190,10 @@ class MainActivity : AppCompatActivity(), TaskClickInterface {
         }
         alertDialog.setNegativeButton("No") { _, _ ->
         }
+        todoDatabase.todoDao().deleteToDo(
+            list[position]
+        )
+        getList()
         alertDialog.show()
     }
 
