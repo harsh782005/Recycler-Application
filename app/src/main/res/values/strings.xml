@@ -21,4 +21,11 @@
     <string name="rbLow">Low</string>
     <string name="rbMedium">Medium</string>
     <string name="all">All</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="description">Description</string>
+    <string name="todo">ToDo</string>
+    <string name="entertodo">Enter Todo</string>
+    <string name="done">Done</string>
+    <string name="ischecked">Is Checked</string>
 </resources>

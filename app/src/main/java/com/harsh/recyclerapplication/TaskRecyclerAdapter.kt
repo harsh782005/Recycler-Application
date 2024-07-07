@@ -38,7 +38,7 @@ class TaskRecyclerAdapter(
         holder.tvDescription.setText(list[position].tvDescription)
         when (list[position].tvPriority) {
             1 -> {
-                holder.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.orange   ))
+                holder.itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.orange))
             }
 
             2 -> {
@@ -57,6 +57,9 @@ class TaskRecyclerAdapter(
         }
         holder.btnDelete.setOnClickListener {
             taskClickInterface.deleteTask(position)
+        }
+        holder.itemView.setOnClickListener {
+            taskClickInterface.itemClick(position)
         }
     }
 }

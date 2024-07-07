@@ -6,56 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <RadioGroup
-        android:id="@+id/redioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toTopOf="parent"
-       >
-
-        <RadioButton
-            android:id="@+id/rbAll"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/all" />
-
-        <RadioButton
-            android:id="@+id/rbHighPriority"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/high" />
-
-        <RadioButton
-            android:id="@+id/rbLowPriority"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/low" />
-
-        <RadioButton
-            android:id="@+id/rbMediumPriority"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/medium" />
-    </RadioGroup>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <fragment
+        android:id="@+id/host"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-       app:layout_constraintTop_toBottomOf="@id/redioGroup"
-      app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/main_graph" />
 
-        />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/baseline_add_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
